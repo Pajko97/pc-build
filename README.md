@@ -1,4 +1,4 @@
-# Project Name
+# PC Build
 
 A full-stack web application developed to sharpen full stack developer skills.
 
