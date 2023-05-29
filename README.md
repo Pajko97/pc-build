@@ -1,6 +1,7 @@
 # PC Build
 
-A full-stack web application developed to sharpen full stack developer skills.
+Get PC configuration recommendation based on your budget and other preferences.
+
 
 ## Table of Contents
 
@@ -14,40 +15,37 @@ A full-stack web application developed to sharpen full stack developer skills.
 
 ## Introduction
 
-[Provide a brief introduction to the project, explaining its purpose and goals. Highlight any unique or standout features.]
-
+It was in my mind for a long time, since i was kinda interested in PC components and PC building since young age. 
+I even went so far to create a business plan, pitch deck, and talked to some investors. In one sentence It is supposed to be
+AI based PC configuration generator. You give us the budget and other preferences, and we give you a builds made specially for your
+usecase. 
 ## Features
 
 [List the key features of the project.]
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Generate PC Build for Gaming
+- Generate PC Build for work
+- Compare components and builds
 
 ## Technologies
 
 - React
 - Node.js
-- Redis
+- TypeORM
 - TypeScript
-- CSS Modules
-
-[List and briefly describe the technologies used in the project.]
+- Styled components
 
 ## Getting Started
 
-[Provide instructions on how to get the project up and running locally. Include any prerequisites, installation steps, and configuration details.]
 
 ### Prerequisites
 
 - Node.js
-- MySQL
 
 ### Installation
 
 1. Clone the repository.
 2. Install the dependencies by running `npm install`.
-3. [Provide any additional setup steps or environment configuration if required.]
 
 ## Usage
 
@@ -69,4 +67,3 @@ A full-stack web application developed to sharpen full stack developer skills.
 ## License
 
 [Specify the project's license. For example, you can use the MIT License.]
-
