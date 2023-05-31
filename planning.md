@@ -11,7 +11,7 @@ and good RAM.
 - Main idea was to use already existing API for getting PC parts. That API would be called on a time basis
 and fetch the latest parts. Since most of the API's available ( read only one hehe ) have outdated components database,
 i decided to go the web scraping route. The website that i am scraping is "pcpartspicker.com" which has biggest database
-of components that i know of that is update regularely. Stil did not decide on the specific tool i will use.
+of components that i know of that is update regularly. Still did not decide on the specific tool i will use.
 
 
 # Recommendation system
@@ -20,14 +20,8 @@ Technologies:
 
 - React.js - Standard stuff on the front end
 - Django - Want to experiment with it a little bit since in my career i have done mainly JS on the backend
-- 
+- Cheerio Scraper - Information will be fetched from Cheerio
 
 Database:
-
-
-
-Build:
-- id int PK
-- cpu cpu_id
-- gpu gpu_id
--  
+- PostgreSQL
+- 
