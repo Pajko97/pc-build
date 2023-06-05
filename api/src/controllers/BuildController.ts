@@ -1,65 +1,95 @@
+import { PrismaClient, Component, CPU, GPU, Mobo, RAM, PSU, Case, SSD } from '@prisma/client';
 import { getBuildPrices } from '../helpers/generateBuildPrices'
 import { generateComponentList } from '../helpers/generateComponentList'
 
 
+interface ComponentPrices {
+  cpu_cost: number;
+  gpu_cost: number;
+  mobo_cost: number;
+  ram_cost: number;
+  psu_cost: number;
+  case_cost: number;
+  ssd_cost: number;
+}
+
 const BuildGenerate = async (req: any, res: any) => {
-
-    const { budget, purpose } = req.body
-
-    try {
     
-    /* Calculate basis for components prices*/
-    const build_prices = getBuildPrices(budget, purpose)
+    const { budget, purpose } = req.body;
 
-    /* Get component list that fit the criteria for provided params */
-    const component_lists = generateComponentList(build_prices)
-
-
-        res.status(200).send({
-            build_1: {
-                cpu: component_lists.cpu[0],
-                gpu: component_lists.gpu[0],
-                mobo: component_lists.mobo[0],
-                ram: component_lists.ram[0],
-                psu: component_lists.psu[0],
-                ssd: component_lists.ssd[0],
-                case: component_lists.case[0]
-            },
-            
-            build_2: {
-                cpu: component_lists.cpu[1],
-                gpu: component_lists.gpu[1],
-                mobo: component_lists.mobo[1],
-                ram: component_lists.ram[1],
-                psu: component_lists.psu[1],
-                ssd: component_lists.ssd[1],
-                case: component_lists.case[1]
-            },
-            
-            build_3: {
-                cpu: component_lists.cpu[1],
-                gpu: component_lists.gpu[1],
-                mobo: component_lists.mobo[1],
-                ram: component_lists.ram[1],
-                psu: component_lists.psu[1],
-                ssd: component_lists.ssd[1],
-                case: component_lists.case[1]
-            },
-            
-            build_4:  {
-                cpu: component_lists.cpu[1],
-                gpu: component_lists.gpu[1],
-                mobo: component_lists.mobo[1],
-                ram: component_lists.ram[1],
-                psu: component_lists.psu[1],
-                ssd: component_lists.ssd[1],
-                case: component_lists.case[1]
-            }
-        })
-    } catch (err) {
-        throw new Error(err)
-    }
+ try {
+    const componentPrices: ComponentPrices = getBuildPrices(budget, purpose);
     
+    const fetch_components: [
+      Component[],
+      CPU[],
+      GPU[],
+      Mobo[],
+      RAM[],
+      PSU[],
+      Case[],
+      SSD[]
+    ] = await prisma.$transaction([
+      prisma.component.findMany({
+        where: { category: 'electronics' },
+      }),
+      prisma.cpu.findMany({
+        where: {
+          price: {
+            gte: componentPrices.cpu_cost - 50,
+            lte: componentPrices.cpu_cost + 50,
+          },
+        },
+      }),
+      prisma.gpu.findMany({
+        where: {
+          price: {
+            gte: componentPrices.gpu_cost - 50,
+            lte: componentPrices.gpu_cost + 50,
+          },
+        },
+      }),
+      prisma.mobo.findMany({
+        where: {
+          price: {
+            gte: componentPrices.mobo_cost - 50,
+            lte: componentPrices.mobo_cost + 50,
+          },
+        },
+      }),
+      prisma.ram.findMany({
+        where: {
+          price: {
+            gte: componentPrices.ram_cost - 50,
+            lte: componentPrices.ram_cost + 50,
+          },
+        },
+      }),
+      prisma.psu.findMany({
+        where: {
+          price: {
+            gte: componentPrices.psu_cost - 50,
+            lte: componentPrices.psu_cost + 50,
+          },
+        },
+      }),
+      prisma.case.findMany({
+        where: {
+          price: {
+            gte: componentPrices.case_cost - 50,
+            lte: componentPrices.case_cost + 50,
+          },
+        },
+      }),
+      prisma.ssd.findMany({
+        where: {
+          price: {
+            gte: componentPrices.ssd_cost - 50,
+            lte: componentPrices.ssd_cost + 50,
+          },
+        },
+      }),
+    ]);
     
 
 }
