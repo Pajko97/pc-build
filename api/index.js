@@ -105,6 +105,11 @@ app.get('/auth/google/callback', passport.authenticate('google'), (req, res) => 
 });
 // Define route for registering a new user
 app.post('/register', AuthController.Register);
+
+
+/* Build generate call */
+
+app.post('/build', BuildController.)
 // Start the server
 app.listen(3000, () => {
     console.log('Server started on port 3000');

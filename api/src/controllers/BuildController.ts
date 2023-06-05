@@ -5,15 +5,19 @@ import { generateComponentList } from '../helpers/generateComponentList'
 const buildGenerate = async (req: any, res: any) => {
 
     const { budget, purpose } = req.body
-    /* Generate individual component prices based on budget and purpose */
+
+    /* Calculate basis for components prices*/
     const build_prices = getBuildPrices(budget, purpose)
+
+    /* Get component list that fit the criteria for provided params */
     const component_lists = generateComponentList(build_prices)
 
+    
     res.status(200).send({
         build_1: {
             cpu: '',
             gpu: '',
-            
+
         }
     })
     
