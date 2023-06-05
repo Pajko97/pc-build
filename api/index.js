@@ -17,6 +17,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcrypt');
 const { PrismaClient } = require('@prisma/client');
 const AuthController = require('./controllers/AuthController');
+const BuildController = require('./controllers/BuildController')
 // Create an instance of the Express app
 const app = express();
 // Initialize Prisma client
@@ -109,7 +110,7 @@ app.post('/register', AuthController.Register);
 
 /* Build generate call */
 
-app.post('/build', BuildController.)
+app.post('/build', BuildController.BuildGenerate)
 // Start the server
 app.listen(3000, () => {
     console.log('Server started on port 3000');
