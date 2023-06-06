@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^4.14.1",
+    "apify": "^3.1.5",
     "aws-sdk": "^2.1386.0",
     "bcrypt": "^5.1.0",
     "dotenv": "^16.0.3",
