@@ -1,4 +1,5 @@
 import { PrismaClient, Component, CPU, GPU, Mobo, RAM, PSU, Case, SSD } from '@prisma/client';
+import { getBuildPrices } from '../helpers/generateBuildPrices'
 
 
 interface ComponentPrices {
