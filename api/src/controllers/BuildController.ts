@@ -17,81 +17,15 @@ const BuildGenerate = async (req: any, res: any) => {
     
     const { budget, purpose } = req.body;
 
- try {
-    const componentPrices: ComponentPrices = getBuildPrices(budget, purpose);
+    try {
+        const component_prices_base = getBuildPrices(budget,purpose)
+        const component_list = generateComponentList(component_prices_base)
+        res.status(200).send(component_list)
+    } catch(err) {
+        res.status(500).send({"error" : "Failed to generate build"})
+      throw new Error(err)
+    }
     
-    const fetch_components: [
-      Component[],
-      CPU[],
-      GPU[],
-      Mobo[],
-      RAM[],
-      PSU[],
-      Case[],
-      SSD[]
-    ] = await prisma.$transaction([
-      prisma.component.findMany({
-        where: { category: 'electronics' },
-      }),
-      prisma.cpu.findMany({
-        where: {
-          price: {
-            gte: componentPrices.cpu_cost - 50,
-            lte: componentPrices.cpu_cost + 50,
-          },
-        },
-      }),
-      prisma.gpu.findMany({
-        where: {
-          price: {
-            gte: componentPrices.gpu_cost - 50,
-            lte: componentPrices.gpu_cost + 50,
-          },
-        },
-      }),
-      prisma.mobo.findMany({
-        where: {
-          price: {
-            gte: componentPrices.mobo_cost - 50,
-            lte: componentPrices.mobo_cost + 50,
-          },
-        },
-      }),
-      prisma.ram.findMany({
-        where: {
-          price: {
-            gte: componentPrices.ram_cost - 50,
-            lte: componentPrices.ram_cost + 50,
-          },
-        },
-      }),
-      prisma.psu.findMany({
-        where: {
-          price: {
-            gte: componentPrices.psu_cost - 50,
-            lte: componentPrices.psu_cost + 50,
-          },
-        },
-      }),
-      prisma.case.findMany({
-        where: {
-          price: {
-            gte: componentPrices.case_cost - 50,
-            lte: componentPrices.case_cost + 50,
-          },
-        },
-      }),
-      prisma.ssd.findMany({
-        where: {
-          price: {
-            gte: componentPrices.ssd_cost - 50,
-            lte: componentPrices.ssd_cost + 50,
-          },
-        },
-      }),
-    ]);
-    
-
 }
 
 module.exports = {
