@@ -1,89 +1,94 @@
-const generateComponentList = (componentPrices: any) => {
+import { PrismaClient, Component, CPU, GPU, Mobo, RAM, PSU, Case, SSD } from '@prisma/client';
 
-    const cpu_list = await prisma.cpu.findMany({
+
+interface ComponentPrices {
+    cpu_cost: number;
+    gpu_cost: number;
+    mobo_cost: number;
+    ram_cost: number;
+    psu_cost: number;
+    case_cost: number;
+    ssd_cost: number;
+  }
+
+  
+const generateComponentList = (componentPrices: any) => {
+   try {
+    const componentPrices: ComponentPrices = getBuildPrices(budget, purpose);
+    
+    const fetch_components: [
+      Component[],
+      CPU[],
+      GPU[],
+      Mobo[],
+      RAM[],
+      PSU[],
+      Case[],
+      SSD[]
+    ] = await prisma.$transaction([
+      prisma.component.findMany({
+        where: { category: 'electronics' },
+      }),
+      prisma.cpu.findMany({
         where: {
           price: {
             gte: componentPrices.cpu_cost - 50,
-            lte: componentPrices.cpu_cost + 50
-          }
-        }
-    });
-
-    /* Choose GPU */
-
-    const gpu_list = await prisma.cpu.findMany({
+            lte: componentPrices.cpu_cost + 50,
+          },
+        },
+      }),
+      prisma.gpu.findMany({
         where: {
           price: {
             gte: componentPrices.gpu_cost - 50,
-            lte: componentPrices.gpu_cost + 50
-          }
-        }
-    });
-
-    /* Choose MOBO */
-
-    const mobo_list = await prisma.cpu.findMany({
+            lte: componentPrices.gpu_cost + 50,
+          },
+        },
+      }),
+      prisma.mobo.findMany({
         where: {
           price: {
             gte: componentPrices.mobo_cost - 50,
-            lte: componentPrices.mobo_cost + 50
-          }
-        }
-    });
-    
-    /* Choose RAM */
-
-    const ram_list = await prisma.ram.findMany({
+            lte: componentPrices.mobo_cost + 50,
+          },
+        },
+      }),
+      prisma.ram.findMany({
         where: {
-            price: {
-              gte: componentPrices.ram_cost - 50,
-              lte: componentPrices.ram_cost + 50
-            }
-          }
-    })
-
-     /* Choose PSU */
-
-     const psu_list = await prisma.ram.findMany({
+          price: {
+            gte: componentPrices.ram_cost - 50,
+            lte: componentPrices.ram_cost + 50,
+          },
+        },
+      }),
+      prisma.psu.findMany({
         where: {
-            price: {
-              gte: componentPrices.psu_cost - 50,
-              lte: componentPrices.psu_cost + 50
-            }
-          }
-    })
-
-    /* Choose Case */
-
-    const case_list = await prisma.ram.findMany({
+          price: {
+            gte: componentPrices.psu_cost - 50,
+            lte: componentPrices.psu_cost + 50,
+          },
+        },
+      }),
+      prisma.case.findMany({
         where: {
-            price: {
-              gte: componentPrices.mobo_cost - 50,
-              lte: componentPrices.mobo_cost + 50
-            }
-          }
-    })
-
-    /* Choose SSD */
-
-    const ssd_list = await prisma.ram.findMany({
+          price: {
+            gte: componentPrices.case_cost - 50,
+            lte: componentPrices.case_cost + 50,
+          },
+        },
+      }),
+      prisma.ssd.findMany({
         where: {
-            price: {
-              gte: componentPrices.mobo_cost - 50,
-              lte: componentPrices.mobo_cost + 50
-            }
-          }
-    })
-
-    return {
-        cpu: cpu_list,
-        gpu: gpu_list,
-        mobo: mobo_list,
-        ram: ram_list,
-        psu: psu_list,
-        case: case_list,
-        ssd: ssd_list,
-    }
+          price: {
+            gte: componentPrices.ssd_cost - 50,
+            lte: componentPrices.ssd_cost + 50,
+          },
+        },
+      }),
+    ]);
+   } catch(err: any) {
+     throw new Error(err)
+   }
 }
 
 module.exports = {
