@@ -87,6 +87,8 @@ const generateComponentList = (componentPrices: any) => {
         },
       }),
     ]);
+     
+    return fetch_components
    } catch(err: any) {
      throw new Error(err)
    }
