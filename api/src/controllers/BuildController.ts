@@ -3,16 +3,6 @@ import { getBuildPrices } from '../helpers/generateBuildPrices'
 import { generateComponentList } from '../helpers/generateComponentList'
 
 
-interface ComponentPrices {
-  cpu_cost: number;
-  gpu_cost: number;
-  mobo_cost: number;
-  ram_cost: number;
-  psu_cost: number;
-  case_cost: number;
-  ssd_cost: number;
-}
-
 const BuildGenerate = async (req: any, res: any) => {
     
     const { budget, purpose } = req.body;
