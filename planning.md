@@ -20,7 +20,13 @@ Technologies:
 
 - React.js - Standard stuff on the front end
 - Django - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
-- Cheerio Scraper - Information will be fetched from Cheerio
+- Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
 
 Database:
 - PostgreSQL
+
+
+# Features
+
+For starters, app will return best suited options for gamers. Later i will add other data
+for proffessions like 3D Modeling, Software Development etc.
