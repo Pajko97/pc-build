@@ -24,6 +24,7 @@ Apify.main(async () => {
               return this.nodeType === 3;
             }).text().trim();
             
+            console.log(cpuClock, cpuName, manufacturer)
             var cpuInfo = {
               cpuClock: cpuClock,
               cpuManufacturer: manufacturer,
