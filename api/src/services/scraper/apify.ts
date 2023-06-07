@@ -48,6 +48,13 @@ Apify.main(async () => {
   await crawler.run();
 });
 
-function getNextPageUrl(currentUrl) {
- 
+function getNextPageUrl(currentURL: string) {
+  const regex_number_pattern = /\d+/;
+
+  const current_page_number = currentURL.match(regex_number_pattern)
+  const format = current_page_number ? current_page_number.toString() : ""
+  const format_URL_string: string = currentURL.split("").slice(35).push(format)
+  const nextPageURL  = `${format_URL_string}${current_page_number}`
+
+  return nextPageURL
 }
