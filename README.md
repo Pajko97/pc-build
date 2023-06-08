@@ -1,5 +1,7 @@
 # OP Build
-![OP Build Logo](https://cdn.discordapp.com/attachments/1050547427993714741/1116297798242021396/Group_333.png)
+<div style="text-align: center;">
+  <img src="https://cdn.discordapp.com/attachments/1050547427993714741/1116297798242021396/Group_333.png" alt="OP Build Logo">
+</div>
 
 Get PC configuration recommendation based on your budget and other preferences.
 
