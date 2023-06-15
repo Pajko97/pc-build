@@ -20,7 +20,15 @@ descriptions and information. Second part of the scraping will be on the "amazon
 - Inject my referal code in each URL 
 - Show users the link towards buy location ( in this case Amazon ) that will have my ref code
 
-Still working on the scraper..
+Scraper update, will have actors set up on apify.com, and will run the from Node.js 
+
+- WS GET-GPU
+- WS GET-CPU
+- WS GET-MOBO
+- WS GET-RAM
+- WS GET-STORAGE
+- WS GET-PS
+- WS GET-CASE
 # Recommendation system
 
 Technologies:
