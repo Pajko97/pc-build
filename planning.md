@@ -13,14 +13,20 @@ and fetch the latest parts. Since most of the API's available ( read only one he
 i decided to go the web scraping route. The website that I am scraping is "pcpartspicker.com" which has biggest database
 of components that I know of that is update regularly. Still did not decide on the specific tool I will use.
 
-- Still working on the scraper..
+# Scraper
+First part of the scraping is the "pcpartspicker.com" and that is where i would be getting the actual component 
+descriptions and information. Second part of the scraping will be on the "amazon.com" and from there i will:
+- Get amazon link for each component of the build
+- Inject my referal code in each URL 
+- Show users the link towards buy location ( in this case Amazon ) that will have my ref code
 
+Still working on the scraper..
 # Recommendation system
 
 Technologies:
 
 - React.js - Standard stuff on the front end
-- Django - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
+- Node.js - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
 - Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
 
 Database:
