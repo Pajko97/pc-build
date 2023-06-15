@@ -13,6 +13,7 @@ and fetch the latest parts. Since most of the API's available ( read only one he
 i decided to go the web scraping route. The website that I am scraping is "pcpartspicker.com" which has biggest database
 of components that I know of that is update regularly. Still did not decide on the specific tool I will use.
 
+- Still working on the scraper..
 
 # Recommendation system
 
