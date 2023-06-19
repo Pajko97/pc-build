@@ -36,6 +36,23 @@ const ButtonStyle = {
   textTransform: 'uppercase',
 }
 
+const GoogleLogin = styled.div`
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: .5rem 1rem;
+  margin-right: 2rem;
+`
+
+const LILogin = styled.div`
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: .5rem 1rem;
+`
+
+const Socials = styled.div`
+  display: flex;
+`
+
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
   const { touched, errors, isSubmitting, message } = props;
 
@@ -48,18 +65,23 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
 
         <Field style={{ ...InputStyle }} type="password" name="password" />
         {touched.password && errors.password && <div>{errors.password}</div>}
-        <p>Forgot Password</p>
+          <p>Forgot Password</p>
         <button style={{
-  padding: '1rem 5rem',
-  background: '#DB4343',
-  color: 'white',
-  border: 'none',
-  margin: '1rem 0',
-  borderRadius: '10px',
-  textTransform: 'uppercase',
-}} type="submit" disabled={isSubmitting}>
+            padding: '1rem 5rem',
+            background: '#DB4343',
+            color: 'white',
+            border: 'none',
+            margin: '1rem 0',
+            borderRadius: '10px',
+            textTransform: 'uppercase',
+          }} type="submit" disabled={isSubmitting}>
           SIGN IN
         </button>
+         <p style={{ margin: '2.5rem 0'}}>or login with</p>
+         <Socials>
+          <GoogleLogin>Google</GoogleLogin>
+          <LILogin>Linked In</LILogin>
+         </Socials>
       </div>
     </Form>
   );
