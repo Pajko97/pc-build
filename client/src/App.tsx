@@ -1,22 +1,25 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import About from './pages/About';
 import Build from './pages/Build'
-import BuildResult from './components/BuildResult';
 import Contact  from './pages/Contact';
+import Landing from './pages/Landing';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Build} />
-        <Route path='/contact' component={Contact} />
-        <Route path='/about' component={About} />
-        <Route path='/build/:id' component={BuildResult} />
-      </Switch>
+    <div>
+      <Navbar/>
+      <Router>
+      <Routes>
+          <Route path='/' element={<Landing />} />
+          <Route path='/contact' element={<Contact />} />
+          <Route path='/about' element={<About />} />
+      </Routes>
     </Router>
+    </div>
   );
 }                                  
 
