@@ -27,6 +27,9 @@ const SecondSection = styled.div`
     width: 50%;
     height: 100vh;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const Header = styled.h1`
