@@ -5,6 +5,7 @@ import brain from '../assets/pages/Landing/ai_brain.png'
 import choice from '../assets/pages/Landing/choice.png'
 import lines from '../assets/pages/Landing/lines.png'
 import truck from '../assets/pages/Landing/truck.png'
+import AuthForm from '../components/shared/AuthForm'
 
 
 
@@ -77,7 +78,7 @@ preferences. Tell us what you need, we take care of the rest.</Paragraph>
         </Images>
         </FirstSection>
         <SecondSection>
-
+            <AuthForm/>
         </SecondSection>
     </Wrapper>
   )
