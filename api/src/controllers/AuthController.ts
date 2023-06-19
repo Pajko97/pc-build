@@ -31,3 +31,21 @@ const Register = async (req: any, res: any) => {
     res.status(500).json({ message: 'Registration failed.', error });
   }
 }
+
+const Login = async (req: any, res: any) => {
+
+  const { username, password } = req.body;
+
+  try {
+    // Check if username is already taken
+    
+    const existingUser = await prisma.user.findUnique({ where: { username, password } });
+
+    if (existingUser) {
+      return res.status(200).json(existingUser);
+    }
+
+  } catch (error) {
+    res.status(500).json({ message: 'Login failed.', error });
+  }
+}
