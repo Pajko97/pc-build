@@ -1,10 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import BudgetPicker from './BudgetPicker'
 
 
 const Wrapper = styled.div`
     background-color: #153662;
-    padding: 17rem 10rem;
+    padding: 13rem 10rem 5rem 10rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,10 +24,22 @@ const PreferenceTable = styled.div`
     display: flex;
 `
 
-export default function Build_Preferences() {
+const ControlButton = styled.button`
+    background-color: #DB4343;
+    padding: 1rem 3rem;
+    border-radius: 1rem;
+    color: white;
+    margin-top: 2rem;
+    border: none;
+`
+
+
+export default function BuildStep_Preferences() {
   return (
     <Wrapper>
-        <Header>Select your budget range and additional preferences</Header>
+        <Paragraph>Select your budget range, and aditional preferences</Paragraph>
+        <BudgetPicker/>
+        <ControlButton>CONTINUE</ControlButton>
     </Wrapper>
   )
 }
