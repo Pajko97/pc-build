@@ -3,6 +3,7 @@ import logo from '../../assets/shared/logo.svg'
 import styled from 'styled-components'
 import * as Yup from 'yup';
 import { withFormik, FormikProps, FormikErrors, Form, Field } from 'formik';
+import GoogleLogo from '../../assets/components/google_logo.png'
 
 interface FormValues {
   email: string;
@@ -37,10 +38,12 @@ const ButtonStyle = {
 }
 
 const GoogleLogin = styled.div`
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 20px;
+  border: 1px solid #d7d7d7;
   padding: .5rem 1rem;
-  margin-right: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 `
 
 const LILogin = styled.div`
@@ -51,6 +54,12 @@ const LILogin = styled.div`
 
 const Socials = styled.div`
   display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+const GoogleLogoImg = styled.img`
+  margin-right: 1rem;
 `
 
 const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
@@ -63,7 +72,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         <Field style={{ ...InputStyle }} type="email" placeholder="E-mail" name="email" />
         {touched.email && errors.email && <div>{errors.email}</div>}
 
-        <Field style={{ ...InputStyle }} type="password" name="password" />
+        <Field style={{ ...InputStyle }} type="password" placeholder="Password" name="password" />
         {touched.password && errors.password && <div>{errors.password}</div>}
           <p>Forgot Password</p>
         <button style={{
@@ -79,8 +88,7 @@ const InnerForm = (props: OtherProps & FormikProps<FormValues>) => {
         </button>
          <p style={{ margin: '2.5rem 0'}}>or login with</p>
          <Socials>
-          <GoogleLogin>Google</GoogleLogin>
-          <LILogin>Linked In</LILogin>
+          <GoogleLogin><GoogleLogoImg src={GoogleLogo}></GoogleLogoImg>Google</GoogleLogin>
          </Socials>
       </div>
     </Form>

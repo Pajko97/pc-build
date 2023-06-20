@@ -55,8 +55,9 @@ const Images = styled.div`
     display: flex;
     flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
     width:100%;
-    max-width: 40rem;
+    max-width: 70rem;
     margin-top: 5rem;
 `
 

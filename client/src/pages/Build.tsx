@@ -1,5 +1,5 @@
 import React from 'react'
-import BuildStep_SelectPurpose from '../components/BuildProccess_Step_1'
+import BuildStep_SelectPurpose from '../components/Build_Occupation'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
