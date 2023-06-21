@@ -1,52 +1,55 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-generator client {
-  provider = "prisma-client-js"
+model Build {
+  id        String      @id @default(uuid())
+  step      Int
+  components Component[]
 }
 
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+model User {
+  id         String      @id @default(uuid())
+  email      String
+  type       String      // ENUM values can be defined as an enum type in Prisma
+  password   String
+  builds     Build[]     // Builds associated with the user
+  created_at DateTime    @default(now())
+  updated_at DateTime    @updatedAt
 }
 
-model users {
-  id       Int     @id @default(autoincrement())
-  username String  @unique
-  email    String  @unique
-  password String
-  created_at DateTime @default(now())
-  posts    posts[]
-  likes    likes[]
-  comments comments[]
+model GPU {
+  id    String  @id @default(uuid())
+  // Additional fields specific to GPU
 }
 
-model posts {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
-  caption    String?
-  image_url  String?
-  created_at DateTime @default(now())
-  user       users     @relation(fields: [user_id], references: [id])
-  likes      likes[]
-  comments   comments[]
+model CPU {
+  id    String  @id @default(uuid())
+  // Additional fields specific to CPU
 }
 
-model likes {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
-  post_id    Int
-  created_at DateTime @default(now())
-  user       users    @relation(fields: [user_id], references: [id])
-  post       posts     @relation(fields: [post_id], references: [id])
+model Motherboard {
+  id    String  @id @default(uuid())
+  // Additional fields specific to motherboard
 }
 
-model comments {
-  id         Int      @id @default(autoincrement())
-  user_id    Int
-  post_id    Int
-  text       String
-  created_at DateTime @default(now())
-  user       users     @relation(fields: [user_id], references: [id])
-  post       posts     @relation(fields: [post_id], references: [id])
+model Case {
+  id    String  @id @default(uuid())
+  // Additional fields specific to case
+}
+
+model PSU {
+  id    String  @id @default(uuid())
+  // Additional fields specific to PSU
+}
+
+model SSD {
+  id    String  @id @default(uuid())
+  // Additional fields specific to SSD
+}
+
+model RAM {
+  id    String  @id @default(uuid())
+  // Additional fields specific to RAM
+}
+
+model CPUFan {
+  id    String  @id @default(uuid())
+  // Additional fields specific to CPU fan
 }

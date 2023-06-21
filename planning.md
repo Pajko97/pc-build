@@ -29,9 +29,35 @@ Scraper update, will have actors set up on apify.com, and will run the from Node
 - WS GET-STORAGE
 - WS GET-PS
 - WS GET-CASE
-# Recommendation system
 
-Technologies:
+# Revenue model
+
+- Paid advertising
+- Tech selling commission
+
+## Pitch
+
+- 140 million pc's sold in 2022.
+
+Aim:
+- 1% - 1.4 million pc's sold
+- Average price of pc - 1500$
+- 10% commission - 150$ per pc
+- 14000 pc's sold via refferal - 2.1 million in revenue
+
+
+
+Year 1:
+- 100k visitors - 2000 units sold - 300k in revenue
+
+Year 2:
+- 500k visitors - 10000 units sold - 1.5m in revenue
+
+Year 3:
+- 800k visitors - 16000 units sold - 2.4m in revenue
+
+
+## Technologies:
 
 - React.js - Standard stuff on the front end
 - Node.js - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
@@ -43,5 +69,7 @@ Database:
 
 # Features
 
-For starters, app will return best suited options for gamers. Later i will add other data
+- For starters, app will return best suited options for gamers. Later i will add other data
 for proffessions like 3D Modeling, Software Development etc.
+- Fill the build by providing components that you already have and let us do the rest
+

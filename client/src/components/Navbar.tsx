@@ -49,8 +49,10 @@ export default function Navigation () {
   return (
     <NavWrapper>
         <LogoWrapper>
+            <Logo src={logo}/>
             <Text>
                 <CompanyName>OP<Highlighted>Build</Highlighted></CompanyName>
+                <CompanySlogan>The ultimate AI-powered PC configuration/setup generator</CompanySlogan>
             </Text>
         </LogoWrapper>
 
