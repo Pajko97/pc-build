@@ -1,161 +1,173 @@
-model Build {
-  id        String      @id @default(uuid())
-  step      Int
-  user      User        @relation(fields: [user_id], references: [id])
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb://localhost:27017/mydatabase"
+}
 
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Abstract base model for shared properties
+model ComponentBase {
+  id                    String        @id @default(uuid()) @map("_id")
+  name                  String
+  manufacturer          String
+  price                 Int
+  image_placeholder_url String
+  image_url             String
+  Component             Component[]
+  GPU                   GPU[]
+  CPU                   CPU[]
+  Motherboard           Motherboard[]
+  Case                  Case[]
+  PSU                   PSU[]
+  SSD                   SSD[]
+  RAM                   RAM[]
+  CPUFan                CPUFan[]
+  Monitor               Monitor[]
+}
+
+model Build {
+  id             String      @id @default(uuid()) @map("_id")
+  step           Int
+  component_list Component[]
+  User           User?       @relation(fields: [userId], references: [id])
+  userId         String?
+}
+
+model Component {
+  id              String        @id @default(uuid()) @map("_id")
+  componentBase   ComponentBase @relation(fields: [componentBaseId], references: [id])
+  // Add additional properties specific to Component
+  Build           Build?        @relation(fields: [buildId], references: [id])
+  buildId         String?
+  componentBaseId String
 }
 
 model User {
-  id         String      @id @default(uuid())
+  id         String   @id @default(uuid()) @map("_id")
   email      String
-  type       String      // ENUM values can be defined as an enum type in Prisma
+  type       String // ENUM values can be defined as an enum type in Prisma
   password   String
-  builds     Build[]     // Builds associated with the user
-  created_at DateTime    @default(now())
-  updated_at DateTime    @updatedAt
+  builds     Build[] // Builds associated with the user
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
 }
 
 model GPU {
-  id    String  @id @default(uuid())
-  clock Int 
-  boost_clock Int
-  memory Int
-  length Int
-  color String
-  manufacturer String
-  model String
+  id                String        @id @default(uuid()) @map("_id")
+  component         ComponentBase @relation(fields: [componentBaseId], references: [id])
+  clock             Int
+  boost_clock       Int
+  memory            Int
+  length            Int
+  color             String
+  model             String
   manufacturer_code String
-  name String
-  price Int
-  image_placeholder_url String
-  image_url String
   // Additional fields specific to GPU
+  componentBaseId   String
 }
 
 model CPU {
-  id    String  @id @default(uuid())
-  name String
-  core_count Int
-  core_clock Int
-  boost_clock Int
-  tdp Int
+  id                  String        @id @default(uuid()) @map("_id")
+  component           ComponentBase @relation(fields: [componentBaseId], references: [id])
+  core_count          Int
+  core_clock          Int
+  boost_clock         Int
+  tdp                 Int
   integrated_graphics String
-  smt EnumSMT
-  price Int
-  image_placeholder_url String
-  image_url String
+  smt                 EnumSMT
   // Additional fields specific to CPU
+  componentBaseId     String
 }
 
 model Motherboard {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  socket String
-  form_factor String
-  max_memory Int
-  memory_slots Int
-  color String
-  price Int
-  image_placeholder_url String
-  image_url String
+  id              String        @id @default(uuid()) @map("_id")
+  component       ComponentBase @relation(fields: [componentBaseId], references: [id])
+  socket          String
+  form_factor     String
+  max_memory      Int
+  memory_slots    Int
+  color           String
   // Additional fields specific to motherboard
+  componentBaseId String
 }
 
 model Case {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  type String
-  color String
-  power_supply String
+  id                String        @id @default(uuid()) @map("_id")
+  component         ComponentBase @relation(fields: [componentBaseId], references: [id])
+  type              String
+  power_supply      String
   side_panel_window String
-  internal_35_bays Int
+  internal_35_bays  Int
   external_525_bays Int
-  price Int
-  image_placeholder_url String
-  image_url String
+  // Additional fields specific to Case
+  componentBaseId   String
 }
 
 model PSU {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  type String
+  id                String        @id @default(uuid()) @map("_id")
+  component         ComponentBase @relation(fields: [componentBaseId], references: [id])
+  type              String
   efficiency_rating String
-  wattage Int
-  modular String
-  color String
-  price Int
-  image_placeholder_url String
-  image_url String
+  wattage           Int
+  modular           String
+  color             String
   // Additional fields specific to PSU
+  componentBaseId   String
 }
 
 model SSD {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  capacity Int
-  price_per_gb Int
-  type String
-  cache Int
-  form_factor String
-  interface String
-  price Int
-  image_placeholder_url String
-  image_url String
+  id              String        @id @default(uuid()) @map("_id")
+  component       ComponentBase @relation(fields: [componentBaseId], references: [id])
+  capacity        Int
+  price_per_gb    Int
+  type            String
+  cache           Int
+  form_factor     String
+  interface       String
   // Additional fields specific to SSD
+  componentBaseId String
 }
 
 model RAM {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  speed Int
-  modules String
-  price_per_gb Int
-  color String
+  id                 String        @id @default(uuid()) @map("_id")
+  component          ComponentBase @relation(fields: [componentBaseId], references: [id])
+  speed              Int
+  modules            String
+  price_per_gb       Int
+  color              String
   first_word_latency String
-  cas_latency String
-  price Int
-  image_placeholder_url String
-  image_url String
+  cas_latency        String
   // Additional fields specific to RAM
+  componentBaseId    String
 }
 
 model CPUFan {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  fan_rpm String
-  noise_level String
-  color String
-  radiator_size String
-  price Int
-  image_placeholder_url String
-  image_url String
+  id              String        @id @default(uuid()) @map("_id")
+  component       ComponentBase @relation(fields: [componentBaseId], references: [id])
+  fan_rpm         String
+  noise_level     String
+  color           String
+  radiator_size   String
   // Additional fields specific to CPU fan
+  componentBaseId String
 }
 
 model Monitor {
-  id    String  @id @default(uuid())
-  name String
-  manufacturer String
-  screen_size String
-  resolution String
-  refresh_rate String
-  response_time String
-  panel_type String
-  aspect_ratio String
-  price Int
-  image_placeholder_url String
-  image_url String
+  id              String        @id @default(uuid()) @map("_id")
+  component       ComponentBase @relation(fields: [componentBaseId], references: [id])
+  screen_size     String
+  resolution      String
+  refresh_rate    String
+  response_time   String
+  panel_type      String
+  aspect_ratio    String
   // Additional fields specific to monitor
+  componentBaseId String
 }
 
 enum EnumSMT {
   YES
   NO
 }
-
