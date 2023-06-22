@@ -1,7 +1,8 @@
 model Build {
   id        String      @id @default(uuid())
   step      Int
-  components Component[]
+  user      User        @relation(fields: [user_id], references: [id])
+
 }
 
 model User {
@@ -16,40 +17,145 @@ model User {
 
 model GPU {
   id    String  @id @default(uuid())
+  clock Int 
+  boost_clock Int
+  memory Int
+  length Int
+  color String
+  manufacturer String
+  model String
+  manufacturer_code String
+  name String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to GPU
 }
 
 model CPU {
   id    String  @id @default(uuid())
+  name String
+  core_count Int
+  core_clock Int
+  boost_clock Int
+  tdp Int
+  integrated_graphics String
+  smt EnumSMT
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to CPU
 }
 
 model Motherboard {
   id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  socket String
+  form_factor String
+  max_memory Int
+  memory_slots Int
+  color String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to motherboard
 }
 
 model Case {
   id    String  @id @default(uuid())
-  // Additional fields specific to case
+  name String
+  manufacturer String
+  type String
+  color String
+  power_supply String
+  side_panel_window String
+  internal_35_bays Int
+  external_525_bays Int
+  price Int
+  image_placeholder_url String
+  image_url String
 }
 
 model PSU {
   id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  type String
+  efficiency_rating String
+  wattage Int
+  modular String
+  color String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to PSU
 }
 
 model SSD {
   id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  capacity Int
+  price_per_gb Int
+  type String
+  cache Int
+  form_factor String
+  interface String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to SSD
 }
 
 model RAM {
   id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  speed Int
+  modules String
+  price_per_gb Int
+  color String
+  first_word_latency String
+  cas_latency String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to RAM
 }
 
 model CPUFan {
   id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  fan_rpm String
+  noise_level String
+  color String
+  radiator_size String
+  price Int
+  image_placeholder_url String
+  image_url String
   // Additional fields specific to CPU fan
 }
+
+model Monitor {
+  id    String  @id @default(uuid())
+  name String
+  manufacturer String
+  screen_size String
+  resolution String
+  refresh_rate String
+  response_time String
+  panel_type String
+  aspect_ratio String
+  price Int
+  image_placeholder_url String
+  image_url String
+  // Additional fields specific to monitor
+}
+
+enum EnumSMT {
+  YES
+  NO
+}
+
