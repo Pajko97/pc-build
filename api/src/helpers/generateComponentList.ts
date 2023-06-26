@@ -10,12 +10,11 @@ interface ComponentPrices {
     psu_cost: number;
     case_cost: number;
     ssd_cost: number;
-  }
+}
 
-  
+
 const generateComponentList = async (componentPrices: any) => {
    try {
-    const componentPrices: ComponentPrices = getBuildPrices(budget, purpose);
     /* Must be a way to fetch from multiple collections in a single transaction in MongoDB */
     const fetch_components: [
       Component[],

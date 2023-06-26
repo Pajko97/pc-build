@@ -2,9 +2,10 @@
 FROM ubuntu:22.04
 
 # Set environment variables
+# Set noninteractive so prompts doesn't break the build
 ENV NODE_VERSION=14 \
     POSTGRES_VERSION=13 \
-    DEBIAN_FRONTEND=noninteractive
+    DEBIAN_FRONTEND=noninteractive 
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
