@@ -66,7 +66,8 @@ Year 3:
 - Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
 
 Database:
-- PostgreSQL
+- MongoDB
+  
 
 
 # Features
@@ -74,4 +75,4 @@ Database:
 - For starters, app will return best suited options for gamers. Later i will add other data
 for proffessions like 3D Modeling, Software Development etc.
 - Fill the build by providing components that you already have and let us do the rest
-
+- PC Builder by selecting parts manually
