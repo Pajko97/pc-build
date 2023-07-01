@@ -3,8 +3,7 @@ I divided technical solution in two. One of them is getting the actual parts and
 and the other part would be recommendation feature. Since I am not an AI expert, and would probably invest too much 
 resources on that part, I decided to create an algorithm that will make choices based on values like GPU clock speed,
 GPU performance in rendering tasks, CPU cores, RAM etc.
-Color picker
-https://www.youtube.com/watch?v=HAlIWRcldoc&ab_channel=Juxtopposed
+
 
 ex. In a case of query of user who works mainly using 3D Max and Blender, we give him a build with great GPU, good CPU
 and good RAM. 
@@ -63,10 +62,12 @@ Year 3:
 
 - React.js - Standard stuff on the front end
 - Node.js - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
-- Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
-
+- Apify ( Cheerio ) - Information will be fetched from Apify with Cheerio or Pupeteer
+Color picker
+https://www.youtube.com/watch?v=HAlIWRcldoc&ab_channel=Juxtopposed
 Database:
 - MongoDB
+
   
 
 
