@@ -57,6 +57,7 @@ Year 2:
 Year 3:
 - 800k visitors - 16000 units sold - 2.4m in revenue
 
+--- Have to revisit this
 
 ## Technologies:
 
