@@ -82,3 +82,10 @@ for proffessions like 3D Modeling, Software Development etc.
 
 - Fill the build by providing components that you already have and let us do the rest
 - PC Builder by selecting parts manually
+
+
+# Progress
+
+- I finally managed to scrape the data i need. My next step is to figure out the best way to store them in the database. MongoDB seems like better choice
+since i will be working with data that have relatively loosely defined structure. After i finish storing it in the database, i will go on to test the API.
+
