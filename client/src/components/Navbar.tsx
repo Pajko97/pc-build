@@ -52,12 +52,9 @@ export default function Navigation () {
             <Logo src={logo}/>
             <Text>
                 <CompanyName>OP<Highlighted>Build</Highlighted></CompanyName>
-                <CompanySlogan>The ultimate AI-powered PC configuration/setup generator</CompanySlogan>
+                <CompanySlogan>The ultimate PC configuration/setup generator</CompanySlogan>
             </Text>
         </LogoWrapper>
-
-
-
     </NavWrapper>
   )
 }

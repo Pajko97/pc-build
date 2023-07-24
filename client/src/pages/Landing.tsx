@@ -12,11 +12,11 @@ import AuthForm from '../components/shared/AuthForm'
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
+    background-color: #153662;
 `
 
 const FirstSection = styled.div`
     width: 50%;
-    background-color: #171515;
     padding:15rem 10rem;
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@ const FirstSection = styled.div`
 const SecondSection = styled.div`
     width: 50%;
     height: 100vh;
-    background-color: #fff;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
 `
@@ -35,12 +35,13 @@ const SecondSection = styled.div`
 const Header = styled.h1`
     font-size: 5rem;
     color: #fff;
+    font-weight: 400;
     align-self: flex-start;
     padding:.5rem 0;
 `
 
 const Highlight = styled.span`
-    color: #E41D26;
+    color: #D84747;
 `
 
 const Paragraph = styled.p`
@@ -67,6 +68,19 @@ const Image = styled.img`
     margin-right: 2rem;
 `
 
+const PageLinks = styled.div`
+    display: flex;
+`
+
+const PageLink = styled.a`
+    color: black;
+    background-color: white;
+    border-radius:20px;
+    border:1px solid black;
+    padding:.75rem 2rem;
+    margin:0 1rem;
+`
+
 export default function Landing() {
   return (
     <Wrapper>
@@ -74,14 +88,13 @@ export default function Landing() {
             <Header><Highlight>Generate</Highlight> ideal <br/><Highlight>PC</Highlight> configuration<br/>in 30 seconds.</Header>
             <Paragraph>Generate configurations based on your
 preferences. Tell us what you need, we take care of the rest.</Paragraph>
-        <Images>
-            <Image src={brain} />
-            <Image src={choice} />
-            <Image src={lines} />
-            <Image src={truck} />
-        </Images>
         </FirstSection>
         <SecondSection>
+            <PageLinks>
+                <PageLink>About</PageLink>
+                <PageLink>Funding</PageLink>
+                <PageLink>Contact</PageLink>
+            </PageLinks>
             <AuthForm/>
         </SecondSection>
     </Wrapper>
