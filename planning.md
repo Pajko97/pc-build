@@ -62,13 +62,15 @@ Year 3:
 
 
 
+--- Have to revisit this
 
 ## Technologies:
 
 - React.js - Standard stuff on the front end
 - Node.js - Want to experiment with it a little bit since in my career I have done mainly JS on the backend
-- Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
-
+- Apify ( Cheerio ) - Information will be fetched from Apify with Cheerio or Pupeteer
+Color picker
+https://www.youtube.com/watch?v=HAlIWRcldoc&ab_channel=Juxtopposed
 Database:
 - MongoDB
 
@@ -79,4 +81,4 @@ Database:
 for proffessions like 3D Modeling, Software Development etc.
 
 - Fill the build by providing components that you already have and let us do the rest
-
+- PC Builder by selecting parts manually
