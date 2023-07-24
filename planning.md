@@ -3,8 +3,6 @@ I divided technical solution in two. One of them is getting the actual parts and
 and the other part would be recommendation feature. Since I am not an AI expert, and would probably invest too much 
 resources on that part, I decided to create an algorithm that will make choices based on values like GPU clock speed,
 GPU performance in rendering tasks, CPU cores, RAM etc.
-Color picker
-https://www.youtube.com/watch?v=HAlIWRcldoc&ab_channel=Juxtopposed
 
 ex. In a case of query of user who works mainly using 3D Max and Blender, we give him a build with great GPU, good CPU
 and good RAM. 
@@ -35,28 +33,34 @@ Scraper update, will have actors set up on apify.com, and will run the from Node
 # Revenue model
 
 - Paid advertising
+- Selling data about the users
 - Tech selling commission
 
 ## Pitch
 
 - 140 million pc's sold in 2022.
 
-Aim:
-- 1% - 1.4 million pc's sold
-- Average price of pc - 1500$
-- 10% commission - 150$ per pc
-- 14000 pc's sold via refferal - 2.1 million in revenue
-
+3 year aim:
+- Website visitors - 1 million
+- 3% - 33k components sold
+- Average price of component - $150
+- 10% commission - 15$ per component
+- 33000 purchase's - 495k in revenue
 
 
 Year 1:
-- 100k visitors - 2000 units sold - 300k in revenue
+- 100k visitors - 3300 units sold - 
+  49.5k in gross profit
+  2.4k in expenses
+  47.1k in net profit
 
 Year 2:
-- 500k visitors - 10000 units sold - 1.5m in revenue
+- 400k visitors - 13200 units sold - 198k in revenue
 
 Year 3:
-- 800k visitors - 16000 units sold - 2.4m in revenue
+- 500k visitors - 16500 units sold - 247.5k in revenue
+
+
 
 
 ## Technologies:
@@ -66,12 +70,13 @@ Year 3:
 - Apify ( Cheerio/Pupeteer ) - Information will be fetched from Apify with Cheerio or Pupeteer
 
 Database:
-- PostgreSQL
+- MongoDB
 
 
 # Features
 
 - For starters, app will return best suited options for gamers. Later i will add other data
 for proffessions like 3D Modeling, Software Development etc.
+
 - Fill the build by providing components that you already have and let us do the rest
 

@@ -10,8 +10,7 @@ const getBuildPrices = (budget: number, purpose: string) => {
     const ram_price = (TOTAL * indexes.gamer.ram)
     const case_price = (TOTAL * indexes.gamer.ram)
     const storage_price = (TOTAL * indexes.gamer.ram)
-
-
+    
     return {
         gpu_cost : gpu_price,
         cpu_cost: cpu_price,
@@ -20,12 +19,7 @@ const getBuildPrices = (budget: number, purpose: string) => {
         case_cost : case_price,
         storage_cost : storage_price
     }
-
-
-}
-
-
-
+ }
 
 module.exports = {
     getBuildPrices

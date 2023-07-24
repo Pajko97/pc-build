@@ -33,12 +33,11 @@ const ControlButton = styled.button`
     border: none;
 `
 
-
 export default function BuildStep_Preferences() {
   return (
     <Wrapper>
-        <Paragraph>Select your budget range, and aditional preferences</Paragraph>
-        <BudgetPicker/>
+        <Paragraph>Select your budget range, and additional preferences</Paragraph>
+        <BudgetPicker />
         <ControlButton>CONTINUE</ControlButton>
     </Wrapper>
   )

@@ -4,7 +4,17 @@
     3. Update database
 
 */
+const updateDatabase = async () => {
+    getCPUList()
+    getGPUList()
+    getMotherboardList()
+    getRAMList()
+    /* Get monitor list */
+    /* Get case list */
+    /* Get storage list */
+    /* Get cooler list  */
 
+}
 const getCPUList = async () => {
 
     const cpu_list = fetch('https://api.apify.com/v2/acts/janedoe~WP-GET-CPU/runs?maxItems=10000')
@@ -30,7 +40,7 @@ const getGPUList = async () => {
             return data.items
         })
         .catch(err => console.error(err));
-    
+        
         try {
             db.collection('gpu').insertMany(gpu_list);
         } catch (error) {
