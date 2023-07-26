@@ -1,31 +1,12 @@
 datasource db {
   provider = "mongodb"
-  url      = "mongodb://localhost:27017/mydatabase"
+  url      = "mongodb://localhost:27017/pc_build"
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-// Abstract base model for shared properties
-model ComponentBase {
-  id                    String        @id @default(uuid()) @map("_id")
-  name                  String
-  manufacturer          String
-  price                 Int
-  image_placeholder_url String
-  image_url             String
-  Component             Component[]
-  GPU                   GPU[]
-  CPU                   CPU[]
-  Motherboard           Motherboard[]
-  Case                  Case[]
-  PSU                   PSU[]
-  SSD                   SSD[]
-  RAM                   RAM[]
-  CPUFan                CPUFan[]
-  Monitor               Monitor[]
-}
 
 model Build {
   id             String      @id @default(uuid()) @map("_id")
@@ -54,28 +35,30 @@ model User {
 }
 
 model GPU {
-  id                String        @id @default(uuid()) @map("_id")
-  component         ComponentBase @relation(fields: [componentBaseId], references: [id])
-  clock             Int
-  boost_clock       Int
-  memory            Int
-  length            Int
-  color             String
-  model             String
-  manufacturer_code String
-  componentBaseId   String
+  id              String     @id @default(uuid()) @map("_id")
+  p_image_url     String?
+  gpu_manufacturer String
+  gpu_name        String
+  gpu_clock       String
+  gpu_memory      String
+  gpu_color       String
+  gpu_model       String
+  gpu_boost_clock String
+  gpu_length      String
+  price           String
 }
 
 model CPU {
-  id                  String        @id @default(uuid()) @map("_id")
-  component           ComponentBase @relation(fields: [componentBaseId], references: [id])
-  core_count          Int
-  core_clock          Int
-  boost_clock         Int
-  tdp                 Int
+  id                  String     @id @default(uuid()) @map("_id")
+  p_image_url         String?
+  manufacturer        String
+  cpu_clock           String
+  cpu_name            String
+  core_count          String
+  tdp                 String
   integrated_graphics String
-  smt                 EnumSMT
-  componentBaseId     String
+  smt                 String
+  price               String
 }
 
 model Motherboard {
