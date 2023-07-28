@@ -88,4 +88,8 @@ for proffessions like 3D Modeling, Software Development etc.
 
 - I finally managed to scrape the data i need. My next step is to figure out the best way to store them in the database. MongoDB seems like better choice
 since i will be working with data that have relatively loosely defined structure. After i finish storing it in the database, i will go on to test the API.
+- There might be a way to prevent creation of configurations with bottleneck. I could fetch benchmark results for most important components like 
+CPU and GPU. Then that results should be compared with a function to determine matching components in terms of performance. 
 
+- Auth from this project will be Google OAuth
+- I want to implement API rate limiting and API auth through tokens
