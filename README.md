@@ -1,10 +1,10 @@
 # OP Build
+
 <div style="text-align: center;">
   <img src="https://cdn.discordapp.com/attachments/1050547427993714741/1116297798242021396/Group_333.png" alt="OP Build Logo">
 </div>
 
 Get PC configuration recommendation based on your budget and other preferences.
-
 
 ## Table of Contents
 
@@ -18,10 +18,11 @@ Get PC configuration recommendation based on your budget and other preferences.
 
 ## Introduction
 
-It was in my mind for a long time, since i was kinda interested in PC components and PC building since young age. 
+It was in my mind for a long time, since i was kinda interested in PC components and PC building since young age.
 I even went so far to create a business plan, pitch deck, and talked to some investors. In one sentence It is supposed to be
 AI based PC configuration generator. You give us the budget and other preferences, and we give you a builds made specially for your
-usecase. 
+usecase.
+
 ## Features
 
 [List the key features of the project.]
@@ -39,7 +40,6 @@ usecase.
 - Styled components
 
 ## Getting Started
-
 
 ### Prerequisites
 
