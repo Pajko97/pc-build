@@ -13,7 +13,7 @@ interface ComponentPrices {
 }
 
 
-const generateComponentList = async (componentPrices: any) => {
+const generateComponentList = async (componentPrices: ComponentPrices) => {
    try {
     /* Must be a way to fetch from multiple collections in a single transaction in MongoDB */
     const fetch_components: [
@@ -26,9 +26,6 @@ const generateComponentList = async (componentPrices: any) => {
       Case[],
       SSD[]
     ] = await prisma.$transaction([
-      prisma.component.findMany({
-        where: { category: 'electronics' },
-      }),
       prisma.cpu.findMany({
         where: {
           price: {
